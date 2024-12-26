@@ -1,0 +1,137 @@
+@import "variaveis.less";
+@import "mapas.less";
+@responsivoMobile: ~"(max-width: 767px)";
+@responsivoTablet: ~"(min-width: 768px) and (max-width: 1023px)";
+
+.width100 {
+    width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: @fontePrincipal;
+}
+
+body {
+    background-color: #colors[corDeFundo];
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: 1024px;
+    .width100();
+    margin: 0 auto;
+
+    @media @responsivoTablet {
+        max-width: 80%;
+    }
+}
+
+header {
+    background-color: #colors[corHeader];
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
+    }
+
+    .menu {
+        display: flex;
+
+        li {
+            font-weight: bold;
+            margin-left: 24px;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    } 
+}
+
+
+
+section {
+    padding: 56px 0;
+    
+    .products {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(3, 32.66%);
+        column-gap: 1%;
+        row-gap: 4%;
+        .width100();
+
+        @media @responsivoTablet {
+            grid-template-columns: repeat(2, 48.5%);
+            column-gap: 3%;
+        }
+
+        @media @responsivoMobile {
+            display: block;
+        }
+
+        .product-item {
+            
+            & img {
+                .width100();
+                border-radius: 16px;
+            }
+            
+            .product-button {
+                display: block;
+                background-color: #colors[corButton];
+                color: #fff;
+                text-align: center;
+                padding: 8px 0;
+                border-radius: 8px;
+                margin-top: 8px;
+                text-decoration: none;
+                
+                &:hover {
+                    background-color: #colors[corButtonHover];
+                }
+            }
+            @media @responsivoMobile {
+                margin-bottom: 32px;
+            }
+        }
+    }  
+}
+
+footer {
+    background-color: #colors[corHeader];
+    padding: 20px;
+
+    .social-links {
+        display: flex;
+        justify-content: space-between;
+        max-width: 70%;
+        .width100();
+        margin: 0 auto;
+        
+        li {
+            img {
+                transition: all ease .3s;
+                &:hover {
+                    transform: scale(1.3);
+                }
+            }
+        }
+    }
+}
+
+
+
+
